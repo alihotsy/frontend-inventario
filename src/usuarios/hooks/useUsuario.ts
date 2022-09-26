@@ -59,6 +59,6 @@ export const useUsuario = () => {
       inputValues,
       handleInput,
       selectUser,
-      handleCancel
+      handleCancel,
     }
 }

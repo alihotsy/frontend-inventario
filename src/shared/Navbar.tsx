@@ -29,6 +29,7 @@ export const Navbar = () => {
   
   
   return (
+    
     <ThemeProvider theme={theme}>
       <AppBar color="primary" position="relative">
         <Container>
