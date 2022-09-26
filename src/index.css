@@ -1,0 +1,29 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+
+.link-selected-style {
+    position: relative;
+    text-decoration: none;
+    color: #61dafb;
+}
+.link-selected-style::before{
+    content: '';
+    position:absolute;
+    width:100%;
+    bottom:-2px;
+    background:#61dafb;
+    height:2px;
+}
+
+.link-style {
+    transition: 0.4s ease all;
+    text-decoration: none;
+    color:#fff
+}
+.link-style:hover {
+    color:#61dafb
+}
