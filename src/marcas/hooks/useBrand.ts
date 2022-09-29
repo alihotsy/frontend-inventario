@@ -1,30 +1,28 @@
-import { getAllUsers } from './../helpers/getAllUsers';
-import { UserInputProps } from './../interface/user.interface';
-import axios from 'axios';
+import React from 'react'
 import { Features } from './../../inventario/interfaces/inventario.interface';
 import { useState, useEffect } from 'react';
+import { getBrands } from '../helpers/getBrands';
+import { BrandProps } from '../interfaces/brand.interface';
 
-
-export const useUsuario = () => {
-    const [users, setUsers] = useState<Features[]>([]);
+export const useBrand = () => {
+    const [brands, setBrands] = useState<Features[]>([]);
     const [loading,setLoading] = useState<boolean>(true);
-    const [actionAndUserId, setActionAndUserId] = useState<any>({
+    const [actionAndBrandId, setActionAndBrandId] = useState<any>({
       action:'',
       id:''
     });
   
     useEffect(() => {
-      getAllUsers()
+      getBrands()
       .then((data) => {
-          setUsers(data)
-          setLoading(false);
-        }).catch(() => { setLoading(true) })
+        setBrands(data)
+        setLoading(false);
+      }).catch(() => setLoading(false));
       console.log('effect')
     }, [])
-    const [inputValues, setInputValues] = useState<UserInputProps>({
-  
+    const [inputValues, setInputValues] = useState<BrandProps>({
+
       name:'',
-      email:'',
       status:'',
   
     });
@@ -34,35 +32,33 @@ export const useUsuario = () => {
           [e.target.name]:e.target.value
          })
     }
-    const selectUser = (user:Features) => {
+    const selectBrand = (brand:Features) => {
        setInputValues({
-         name:user.name,
-         email:user.email!,
-         status:user.status,
+         name:brand.name,
+         status:brand.status,
        })
-       setActionAndUserId({
+       setActionAndBrandId({
          action:'update',
-         id:user._id
+         id:brand._id
        })
     }
     const handleCancel = () => {
       setInputValues({
          name:'',
-         email:'',
          status:''
       })
-      setActionAndUserId({
+      setActionAndBrandId({
         action:'',
         id:''
       })
     }
     return {
-      users,
-      actionAndUserId,
-      setActionAndUserId,
+      brands,
+      actionAndBrandId,
+      setActionAndBrandId,
       inputValues,
       handleInput,
-      selectUser,
+      selectBrand,
       handleCancel,
       loading
     }

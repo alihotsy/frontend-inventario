@@ -4,16 +4,16 @@ import { amber } from '@mui/material/colors';
 
 import SaveIcon from '@mui/icons-material/Save';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
-import { TableContainer, Button,Select, MenuItem,TextField,Grid, Box, Typography, Table, TableHead, TableRow, TableCell, TableBody } from '@mui/material'
+import { TableContainer, Button, Select, MenuItem, TextField, Grid, Box, Typography, Table, TableHead, TableRow, TableCell, TableBody, CircularProgress } from '@mui/material';
 
 import axios from 'axios';
 import { useUsuario } from '../hooks/useUsuario';
-import { TableComponent } from '../components/Table';
+import { TableComponent } from '../../table/Table';
 import { useCallback } from 'react';
 import { Features } from '../../inventario/interfaces/inventario.interface';
 
 export const UsuariosPage = () => {
-  
+
   const {
     users, 
     selectUser, 
@@ -21,10 +21,11 @@ export const UsuariosPage = () => {
     actionAndUserId,
     inputValues,
     handleInput,
-    handleCancel 
+    handleCancel,
+    loading 
   } =  useUsuario();
 
-   const selectUserHook = useCallback((user:Features) => selectUser(user), [users]);
+   const selectDataHook = useCallback<(data:Features) => void>((data:Features) => selectUser(data), [users]);
 
   const saveOrUpdate = async() => {
     
@@ -56,6 +57,7 @@ export const UsuariosPage = () => {
         console.log('Duplicated Key')
       }
   }
+  
   return (
     <Box marginTop="30px">
     <Typography variant="h4">Usuarios</Typography>
@@ -129,7 +131,13 @@ export const UsuariosPage = () => {
        </Grid>
     </Grid>
     </form>
-      <TableComponent selectUserHook={selectUserHook} users={users}/>
+      { !loading ? 
+        <TableComponent selectDataHook={selectDataHook} data={users} thereIsEmail={true}/>
+        :  
+        <Box display="flex" justifyContent="center" marginTop="150px">
+           <CircularProgress size="200px" sx={{fontSize:'24px'}} color='error'/>
+        </Box>
+      }
     </Box>
   )
 }

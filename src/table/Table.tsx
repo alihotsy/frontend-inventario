@@ -2,14 +2,15 @@ import { Paper, TableContainer, Table, TableHead, TableRow, TableCell, Typograph
 import { amber } from '@mui/material/colors'
 import EditIcon from '@mui/icons-material/Edit';
 import React from 'react'
-import { Features } from '../../inventario/interfaces/inventario.interface';
+import { Features } from '../inventario/interfaces/inventario.interface';
 
 type Props = {
-    selectUserHook: (users:Features) => void,
-    users:Features[]
+    selectDataHook: (data:Features) => void,
+    data:Features[],
+    thereIsEmail:boolean
 }
 
-export const TableComponent = React.memo(({ selectUserHook, users }:Props) => {
+export const TableComponent = React.memo(({ selectDataHook, data, thereIsEmail }:Props) => {
     console.log('Rendering many times')
   return (
     <Paper>
@@ -23,9 +24,12 @@ export const TableComponent = React.memo(({ selectUserHook, users }:Props) => {
               <TableCell>
                 <Typography variant='h6'>Name</Typography>
               </TableCell>
-              <TableCell>
+              {
+                thereIsEmail &&
+                <TableCell>
                 <Typography variant='h6'>Email</Typography>
               </TableCell>
+              }
               <TableCell>
                  <Typography variant='h6'>Status</Typography>
               </TableCell>
@@ -42,31 +46,34 @@ export const TableComponent = React.memo(({ selectUserHook, users }:Props) => {
          </TableHead>
          <TableBody>
             {
-              users.map((user, i) => (
-              <TableRow key={user._id} hover>
+              data.map((value, i) => (
+              <TableRow key={value._id} hover>
                 <TableCell component="th">
                   <Typography>{ i+1 }</Typography>
                 </TableCell>
                 <TableCell component="th">
-                   <Typography>{user.name}</Typography>
+                   <Typography>{value.name}</Typography>
+                </TableCell>
+                {
+                  thereIsEmail &&
+                <TableCell>
+                  <Typography>{value.email}</Typography>
+               </TableCell>
+                }
+                <TableCell>
+                  <Typography>{value.status}</Typography>
                 </TableCell>
                 <TableCell>
-                   <Typography>{user.email}</Typography>
+                   <Typography>{value.createdAt.toString().substring(0,10)}</Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography>{user.status}</Typography>
-                </TableCell>
-                <TableCell>
-                   <Typography>{user.createdAt.toString().substring(0,10)}</Typography>
-                </TableCell>
-                <TableCell>
-                   <Typography>{user.updatedAt.toString().substring(0,10)}</Typography>
+                   <Typography>{value.updatedAt.toString().substring(0,10)}</Typography>
                 </TableCell>
                 <TableCell>
                   <Button 
                     variant="contained" 
                     color="warning" 
-                    onClick={() => selectUserHook(user)}
+                    onClick={() => selectDataHook(value)}
                     startIcon={<EditIcon/>}
                     >
                       Edit

@@ -53,7 +53,7 @@ export const UpdateItem = () => {
               <form>
                 <Grid container spacing={3} marginTop="15px">
                 {
-                    Object.keys(inputValues).slice(0,6).map((key,i )=> (
+                    Object.keys(inputValues).slice(0,6).map((key,i ) => (
                     <Grid item xs={3} key={i}>
                         <Typography variant='h6' sx={{fontSize:'18px',color:'#9c27b0'}}>
                           {key.substring(0,1).toUpperCase() + key.substring(1)}
