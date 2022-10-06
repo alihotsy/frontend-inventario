@@ -5,7 +5,7 @@ import axios from "axios";
 
 export const getItem = async(id:string):Promise<Inventario> => {
    try {
-      const { data } = await axios.get<Inventario>(`http://localhost:8083/api/inventario/get-item/${id}`)
+      const { data } = await axios.get<Inventario>(`https://inventario-app-backend.herokuapp.com/api/inventario/get-item/${id}`)
       return data;
       
    } catch (error) {

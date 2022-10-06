@@ -3,10 +3,10 @@ import axios from 'axios';
 
 
 export const getAllModules = async():Promise<any> => {
-    const marcas = await axios.get<Features[]>('http://localhost:8083/api/marca/get-all');
-   const estados = await axios.get<Features[]>('http://localhost:8083/api/estado-equipo/get-all');
-   const tipos =  await axios.get<Features[]>('http://localhost:8083/api/tipo-equipo/get-all');
-   const usuarios =  await axios.get<Features[]>('http://localhost:8083/api/usuario/get-all');
+    const marcas = await axios.get<Features[]>('https://inventario-app-backend.herokuapp.com/api/marca/get-all');
+   const estados = await axios.get<Features[]>('https://inventario-app-backend.herokuapp.com/api/estado-equipo/get-all');
+   const tipos =  await axios.get<Features[]>('https://inventario-app-backend.herokuapp.com/api/tipo-equipo/get-all');
+   const usuarios =  await axios.get<Features[]>('https://inventario-app-backend.herokuapp.com/api/usuario/get-all');
    return {
       brand: marcas.data.map(brand => ({_id:brand._id,name:brand.name})),
       user: usuarios.data.map(user => ({_id:user._id,name:user.name})),
