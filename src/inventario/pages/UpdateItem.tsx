@@ -19,7 +19,7 @@ export const UpdateItem = () => {
 
       await axios({
         method:'PUT',
-        url:`http://localhost:8083/api/inventario/update/${id}`,
+        url:`https://inventario-app-backend.herokuapp.com/api/inventario/update/${id}`,
         data:inputValues
       })
       MySwal.fire({
@@ -31,7 +31,7 @@ export const UpdateItem = () => {
     const createItem = async() => {
       await axios({
         method:'POST',
-        url:`http://localhost:8083/api/inventario/create`,
+        url:`https://inventario-app-backend.herokuapp.com/api/inventario/create`,
         data:inputValues
       })
       MySwal.fire({

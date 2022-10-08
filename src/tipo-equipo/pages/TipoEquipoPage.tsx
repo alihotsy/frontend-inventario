@@ -38,7 +38,7 @@ export const TipoEquipoPage = () => {
         if(actionAndTypeId.action !== 'update') {
           await axios({
            method:'POST',
-           url:'http://localhost:8083/api/tipo-equipo/create',
+           url:'https://inventario-app-backend.herokuapp.com/api/tipo-equipo/create',
            data:inputValues
           })
           location.reload()
@@ -47,7 +47,7 @@ export const TipoEquipoPage = () => {
         console.log(actionAndTypeId.id);
          await axios({
            method:'put',
-           url:`http://localhost:8083/api/tipo-equipo/update/${actionAndTypeId.id}`,
+           url:`https://inventario-app-backend.herokuapp.com/api/tipo-equipo/update/${actionAndTypeId.id}`,
            data:inputValues
           })
           setActionAndTypeId({

@@ -31,7 +31,7 @@ export const MarcasPage = () => {
         if(actionAndBrandId.action !== 'update') {
           await axios({
            method:'POST',
-           url:'http://localhost:8083/api/marca/create',
+           url:'https://inventario-app-backend.herokuapp.com/api/marca/create',
            data:inputValues
           })
           location.reload()
@@ -39,7 +39,7 @@ export const MarcasPage = () => {
        } else{
          await axios({
            method:'put',
-           url:`http://localhost:8083/api/marca/update/${actionAndBrandId.id}`,
+           url:`https://inventario-app-backend.herokuapp.com/api/marca/update/${actionAndBrandId.id}`,
            data:inputValues
           })
           setActionAndBrandId({

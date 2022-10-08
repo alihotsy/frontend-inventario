@@ -36,7 +36,7 @@ export const EstadoEquipoPage = () => {
         if(actionAndStatusId.action !== 'update') {
           await axios({
            method:'POST',
-           url:'http://localhost:8083/api/estado-equipo/create',
+           url:'https://inventario-app-backend.herokuapp.com/api/estado-equipo/create',
            data:inputValues
           })
           location.reload()
@@ -45,7 +45,7 @@ export const EstadoEquipoPage = () => {
         console.log(actionAndStatusId.id);
          await axios({
            method:'put',
-           url:`http://localhost:8083/api/estado-equipo/update/${actionAndStatusId.id}`,
+           url:`https://inventario-app-backend.herokuapp.com/api/estado-equipo/update/${actionAndStatusId.id}`,
            data:inputValues
           })
           setActionAndStatusId({

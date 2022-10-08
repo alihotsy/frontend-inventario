@@ -36,7 +36,7 @@ export const UsuariosPage = () => {
         if(actionAndUserId.action !== 'update') {
           await axios({
            method:'POST',
-           url:'http://localhost:8083/api/usuario/create',
+           url:'https://inventario-app-backend.herokuapp.com/api/usuario/create',
            data:inputValues
           })
           location.reload()
@@ -44,7 +44,7 @@ export const UsuariosPage = () => {
        } else{
          await axios({
            method:'put',
-           url:`http://localhost:8083/api/usuario/update/${actionAndUserId.id}`,
+           url:`https://inventario-app-backend.herokuapp.com/api/usuario/update/${actionAndUserId.id}`,
            data:inputValues
           })
           setActionAndUserId({
