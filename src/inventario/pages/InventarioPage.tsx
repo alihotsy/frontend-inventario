@@ -5,7 +5,7 @@ import { useInventario } from '../hooks/useInventario';
 import { useNavigate } from 'react-router-dom';
 
 
-export const InventarioPage = () => {
+export const InventarioPage = ():JSX.Element => {
 
     const { inventario, error, loading } = useInventario();
     const navigate = useNavigate();

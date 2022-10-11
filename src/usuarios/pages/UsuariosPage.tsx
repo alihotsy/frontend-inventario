@@ -10,7 +10,7 @@ import { TableComponent } from '../../table/Table';
 import { useCallback } from 'react';
 import { Features } from '../../inventario/interfaces/inventario.interface';
 
-export const UsuariosPage = () => {
+export const UsuariosPage = ():JSX.Element => {
 
   const {
     users, 

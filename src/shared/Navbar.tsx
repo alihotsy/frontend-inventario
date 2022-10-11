@@ -23,7 +23,7 @@ const theme:Theme = createTheme({
   }
 })
 
-export const Navbar = () => {
+export const Navbar = ():JSX.Element => {
 
   const navigate = useNavigate();
   

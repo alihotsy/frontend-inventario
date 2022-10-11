@@ -11,7 +11,7 @@ import { Features } from '../../inventario/interfaces/inventario.interface';
 import { TableComponent } from '../../table/Table';
 import { useType } from '../hooks/useType';
 
-export const TipoEquipoPage = () => {
+export const TipoEquipoPage = ():JSX.Element => {
 
 
   const {

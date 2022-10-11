@@ -1,4 +1,5 @@
 import { Container } from "@mui/material"
+import { FC } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { EstadoEquipoPage } from "../estado-equipo/pages/EstadoEquipoPage"
 import { InventarioPage } from "../inventario/pages/InventarioPage"
@@ -9,7 +10,7 @@ import { TipoEquipoPage } from "../tipo-equipo/pages/TipoEquipoPage"
 import { UsuariosPage } from "../usuarios/pages/UsuariosPage"
 
 
-export const RouterApp = () => {
+export const RouterApp = ():JSX.Element => {
   return (
     <BrowserRouter>
       <Navbar/>

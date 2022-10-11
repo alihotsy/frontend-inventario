@@ -9,7 +9,7 @@ import { Features } from '../../inventario/interfaces/inventario.interface';
 import { useEstado } from '../hooks/useEstado';
 import { TableComponent } from '../../table/Table';
 
-export const EstadoEquipoPage = () => {
+export const EstadoEquipoPage = ():JSX.Element => {
 
 
   const {

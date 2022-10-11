@@ -10,7 +10,7 @@ type Props = {
     thereIsEmail:boolean
 }
 
-export const TableComponent = React.memo(({ selectDataHook, data, thereIsEmail }:Props) => {
+export const TableComponent = React.memo(({ selectDataHook, data, thereIsEmail }:Props):JSX.Element => {
     console.log('Rendering many times')
   return (
     <Paper>

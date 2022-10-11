@@ -6,8 +6,9 @@ import axios from 'axios';
 import SaveIcon from '@mui/icons-material/Save';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import { TableComponent } from '../../table/Table';
+import { jsx } from '@emotion/react';
 
-export const MarcasPage = () => {
+export const MarcasPage = ():JSX.Element => {
 
   const {
     brands, 
