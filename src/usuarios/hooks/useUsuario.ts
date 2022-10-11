@@ -1,6 +1,5 @@
 import { getAllUsers } from './../helpers/getAllUsers';
 import { UserInputProps } from './../interface/user.interface';
-import axios from 'axios';
 import { Features } from './../../inventario/interfaces/inventario.interface';
 import { useState, useEffect } from 'react';
 

@@ -1,12 +1,10 @@
 
 
 
-import Paper from '@mui/material/Paper';
-import { amber } from '@mui/material/colors';
 
 import SaveIcon from '@mui/icons-material/Save';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
-import { TableContainer, Button, Select, MenuItem, TextField, Grid, Box, Typography, Table, TableHead, TableRow, TableCell, TableBody, CircularProgress } from '@mui/material';
+import { Button, Select, MenuItem, TextField, Grid, Box, Typography, CircularProgress } from '@mui/material';
 import axios from 'axios';
 import { useCallback } from 'react';
 import { Features } from '../../inventario/interfaces/inventario.interface';

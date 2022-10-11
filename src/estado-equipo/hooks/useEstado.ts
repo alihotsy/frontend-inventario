@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 import { Features } from './../../inventario/interfaces/inventario.interface';
 import { useState, useEffect } from 'react';

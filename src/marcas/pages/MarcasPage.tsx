@@ -1,5 +1,5 @@
-import React, { useCallback } from 'react'
-import { TableContainer, Button, Select, MenuItem, TextField, Grid, Box, Typography, Table, TableHead, TableRow, TableCell, TableBody, CircularProgress } from '@mui/material';
+import { useCallback } from 'react'
+import { Button, Select, MenuItem, TextField, Grid, Box, Typography,CircularProgress } from '@mui/material';
 import { useBrand } from '../hooks/useBrand';
 import { Features } from '../../inventario/interfaces/inventario.interface';
 import axios from 'axios';

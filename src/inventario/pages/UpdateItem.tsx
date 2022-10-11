@@ -1,10 +1,8 @@
-import { Button, CircularProgress, Alert, AlertTitle, Divider, FormControl, Grid, InputLabel, MenuItem, Select, SelectChangeEvent, TextField, Typography } from '@mui/material'
+import { Button, CircularProgress, Alert, AlertTitle, Grid, MenuItem, Select, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import axios from 'axios';
-import { ChangeEvent, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
 import { useCreateOrUpdate } from '../hooks/useCreateOrUpdate';
-import { Inventario } from '../interfaces/inventario.interface';
 import { ItemProps } from '../interfaces/item.interface';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'

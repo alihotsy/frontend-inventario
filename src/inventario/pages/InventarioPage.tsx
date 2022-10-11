@@ -1,9 +1,6 @@
 import { Button, CircularProgress, Box, Card, CardActions, CardContent, CardHeader, CardMedia, Divider, Grid, Typography } from '@mui/material'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-import { useState, useEffect } from 'react'
 import { lightBlue } from '@mui/material/colors';
-import { Inventario } from '../interfaces/inventario.interface';
-import { getAllInventory } from '../helpers/getAllInventory';
 import { useInventario } from '../hooks/useInventario';
 import { useNavigate } from 'react-router-dom';
 
