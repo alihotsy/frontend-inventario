@@ -11,7 +11,7 @@ type Props = {
 }
 
 export const TableComponent = React.memo(({ selectDataHook, data, thereIsEmail }:Props):JSX.Element => {
-    console.log('Rendering many times')
+
   return (
     <Paper>
     <TableContainer component={Paper}>
@@ -47,7 +47,7 @@ export const TableComponent = React.memo(({ selectDataHook, data, thereIsEmail }
          <TableBody>
             {
               data.map((value, i) => (
-              <TableRow key={value._id} hover>
+              <TableRow key={value.uid} hover>
                 <TableCell component="th">
                   <Typography>{ i+1 }</Typography>
                 </TableCell>

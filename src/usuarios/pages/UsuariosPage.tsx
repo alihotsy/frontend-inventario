@@ -3,8 +3,9 @@
 import SaveIcon from '@mui/icons-material/Save';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import { Button, Select, MenuItem, TextField, Grid, Box, Typography,CircularProgress } from '@mui/material';
+import Swal from 'sweetalert2';
 
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useUsuario } from '../hooks/useUsuario';
 import { TableComponent } from '../../table/Table';
 import { useCallback } from 'react';
@@ -34,25 +35,43 @@ export const UsuariosPage = ():JSX.Element => {
         if(actionAndUserId.action !== 'update') {
           await axios({
            method:'POST',
-           url:'https://inventario-app-backend.herokuapp.com/api/usuario/create',
+           url:`http://localhost:8083/api/usuario/create`,
            data:inputValues
           })
+
+          await Swal.fire({
+            icon: 'success',
+            title: 'Actualizado!',
+            text: 'Usuario actualizado con éxito!',
+          })
           location.reload()
-          
+         
+ 
        } else{
          await axios({
-           method:'put',
-           url:`https://inventario-app-backend.herokuapp.com/api/usuario/update/${actionAndUserId.id}`,
+           method:'PUT',
+           url:`http://localhost:8083/api/usuario/update/${actionAndUserId.id}`,
            data:inputValues
           })
           setActionAndUserId({
             action:'',
             id:''
           })
+
+         await Swal.fire({
+            icon: 'success',
+            title: 'Actualizado!',
+            text: 'Usuario actualizado con éxito!',
+          })
           location.reload()
        }
       } catch (error) {
-        console.log('Duplicated Key')
+       
+        Swal.fire({
+          icon: 'error',
+          title: 'Error al crear/actualizar',
+          text: 'El email ya existe'
+        })
       }
   }
   

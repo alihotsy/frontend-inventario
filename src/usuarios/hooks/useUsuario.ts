@@ -14,10 +14,14 @@ export const useUsuario = () => {
   
     useEffect(() => {
       getAllUsers()
-      .then((data) => {
-          setUsers(data)
+      .then((data:any) => {
+      
+          setUsers(data.usuarios)
           setLoading(false);
-        }).catch(() => { setLoading(true) })
+        }).catch((err) => { 
+          console.log(err);
+          setLoading(true)
+         })
       console.log('effect')
     }, [])
     const [inputValues, setInputValues] = useState<UserInputProps>({
@@ -41,7 +45,7 @@ export const useUsuario = () => {
        })
        setActionAndUserId({
          action:'update',
-         id:user._id
+         id:user.uid
        })
     }
     const handleCancel = () => {

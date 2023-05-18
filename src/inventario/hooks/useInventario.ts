@@ -9,10 +9,10 @@ export const useInventario = () => {
     const [loading, setLoading] = useState(true);
     useEffect(() => {
       getAllInventory()
-       .then((allInventory) => {
+       .then((allInventory:any) => {
         setError(false);
         setLoading(false)
-        setInventario(allInventory);
+        setInventario(allInventory.items);
        })
        .catch(() => {
         setLoading(false)

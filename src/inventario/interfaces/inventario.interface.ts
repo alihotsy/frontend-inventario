@@ -13,7 +13,7 @@ export interface Inventario {
 }
 
 export interface Features {
-    _id:       string;
+    uid:       string;
     name:      string;
     status:    Status;
     createdAt: Date;
